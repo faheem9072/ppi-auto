@@ -49,20 +49,20 @@ export const StatsBar: React.FC = () => {
                     <span className="w-7 h-7 rounded-lg bg-[#00E575]/10 text-[#00E575] flex items-center justify-center">
                       <Icon className="w-3.5 h-3.5" />
                     </span>
-                    <span className="text-[10px] font-mono text-[#6A7080] font-bold">
+                    <span className="text-[10px] font-mono text-[#6A7080] font-semibold">
                       0{idx + 1}
                     </span>
                   </div>
 
                   <div className="flex items-baseline gap-1">
-                    <span className="text-2xl sm:text-3xl font-black text-white font-display tracking-tight">
+                    <span className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
                       {stat.value}
                     </span>
-                    <span className="text-[11px] font-mono font-bold text-[#00E575]">
+                    <span className="text-[11px] font-mono font-semibold text-[#00E575]">
                       {stat.unit}
                     </span>
                   </div>
-                  <p className="text-xs font-bold text-white mt-0.5">
+                  <p className="text-xs font-semibold text-white mt-0.5">
                     {stat.label}
                   </p>
                   <p className="text-[11px] text-[#8D93A5] mt-0.5 leading-snug">

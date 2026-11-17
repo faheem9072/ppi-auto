@@ -30,8 +30,8 @@ export default {
         }
       },
       fontFamily: {
-        display: ['Syne', 'Outfit', 'system-ui', 'sans-serif'],
-        sans: ['Outfit', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        display: ['Inter', 'Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+        sans: ['Inter', 'Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace']
       }
     },

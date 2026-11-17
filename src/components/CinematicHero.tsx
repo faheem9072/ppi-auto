@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Phone, ShieldCheck, Play, Pause, ChevronDown, CheckCircle2, Gauge, Radio, MapPin, Sliders } from 'lucide-react';
+import { ArrowRight, Phone, Play, Pause, ChevronDown, Radio, MapPin } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/mockData';
 
 interface CinematicHeroProps {
@@ -47,7 +47,6 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onOpenBooking, onO
     const updateVideoTime = () => {
       const video = videoRef.current;
       if (video && video.duration && !video.paused) {
-        // If user is actively scrolling through sections, sync currentTime smoothly
         const diff = targetTime - video.currentTime;
         if (Math.abs(diff) > 0.05) {
           video.currentTime += diff * 0.2;
@@ -107,22 +106,21 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onOpenBooking, onO
             }`}
           />
 
-          {/* Cinematic Vignette & Ambient Shading */}
+          {/* Clean Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#07080A] via-black/40 to-[#07080A]/70" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/80" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(0,0,0,0.8)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-transparent to-black/75" />
         </div>
 
-        {/* HUD Top Bar: Commercial Telemetry */}
+        {/* HUD Top Bar */}
         <div className="relative z-20 pt-20 sm:pt-24 px-4 sm:px-8 max-w-7xl mx-auto w-full flex items-center justify-between text-xs font-mono">
           <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-[#00E575]/30 text-[#00E575] font-bold text-[10px] sm:text-xs">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-[#00E575]/30 text-[#00E575] font-semibold text-[11px] sm:text-xs">
               <span className="w-2 h-2 rounded-full bg-[#00E575] animate-ping" />
-              CINEMATIC FIELD AUDIT
+              FIELD AUDIT IN PROGRESS
             </span>
             <span className="hidden md:inline-flex items-center gap-1.5 text-[#9EA3B0] bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/5 text-[11px]">
               <Radio className="w-3 h-3 text-[#00E575] animate-pulse" />
-              LIVE TELEMETRY: 65 MPH ROAD TEST
+              TELEMETRY: 65 MPH ROAD TEST
             </span>
           </div>
 
@@ -142,29 +140,29 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onOpenBooking, onO
         </div>
 
         {/* Center: Storytelling Scenes Progression */}
-        <div className="relative z-20 px-4 sm:px-8 max-w-5xl mx-auto w-full flex-1 flex items-center justify-center py-6 text-center">
+        <div className="relative z-20 px-4 sm:px-8 max-w-4xl mx-auto w-full flex-1 flex items-center justify-center py-6 text-center">
           
           {/* SCENE 1: Introduction */}
           {currentScene === 1 && (
-            <div className="space-y-4 sm:space-y-6 max-w-3xl animate-in fade-in zoom-in-95 duration-500">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181B23]/90 backdrop-blur-md border border-[#00E575]/30 text-[#00E575] text-[11px] font-mono font-bold uppercase tracking-wider">
+            <div className="space-y-4 sm:space-y-5 max-w-2xl animate-in fade-in zoom-in-95 duration-400">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#181B23]/90 backdrop-blur-md border border-[#00E575]/30 text-[#00E575] text-xs font-medium">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00E575]" />
-                PPI AUTO • NATIONWIDE MOBILE INSPECTIONS
+                PPI Auto • Nationwide Pre-Purchase Inspections
               </div>
 
-              <h1 className="text-3xl sm:text-6xl lg:text-7xl font-black uppercase text-white font-display tracking-tight leading-[0.92] drop-shadow-2xl">
-                KNOW WHAT IT NEEDS <br />
-                <span className="text-[#00E575]">BEFORE YOU PAY.</span>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold uppercase text-white tracking-tight leading-[1.08] drop-shadow-2xl">
+                Know What It Needs <br />
+                <span className="text-[#00E575]">Before You Pay.</span>
               </h1>
 
-              <p className="text-sm sm:text-lg text-[#C5CAD6] max-w-xl mx-auto font-normal leading-relaxed drop-shadow">
+              <p className="text-sm sm:text-base text-[#D0D4DF] max-w-lg mx-auto leading-relaxed drop-shadow">
                 Professional pre-purchase vehicle inspections. Confidence before every purchase, wherever the car sits.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
                 <button
                   onClick={onOpenBooking}
-                  className="w-full sm:w-auto px-8 py-4 bg-[#00E575] hover:bg-[#00C853] text-black font-display font-black text-sm uppercase tracking-wider rounded-xl shadow-2xl shadow-[#00E575]/30 transition-all duration-200 active:scale-95 flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-7 py-3.5 bg-[#00E575] hover:bg-[#00C853] text-black font-bold text-sm uppercase tracking-wide rounded-xl shadow-xl shadow-[#00E575]/25 transition-all duration-200 active:scale-95 flex items-center justify-center gap-2"
                 >
                   <span>Book Your Inspection</span>
                   <ArrowRight className="w-4 h-4 stroke-[2.5]" />
@@ -172,7 +170,7 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onOpenBooking, onO
 
                 <a
                   href="#how-it-works"
-                  className="w-full sm:w-auto px-6 py-4 bg-black/60 hover:bg-black/80 backdrop-blur-md text-white font-display font-bold text-xs uppercase tracking-wider rounded-xl border border-white/15 transition-all flex items-center justify-center"
+                  className="w-full sm:w-auto px-6 py-3.5 bg-black/60 hover:bg-black/80 backdrop-blur-md text-white font-semibold text-xs uppercase tracking-wide rounded-xl border border-white/15 transition-all flex items-center justify-center"
                 >
                   How It Works
                 </a>
@@ -182,23 +180,23 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onOpenBooking, onO
 
           {/* SCENE 2: 122-Point Inspection */}
           {currentScene === 2 && (
-            <div className="space-y-4 max-w-3xl animate-in fade-in zoom-in-95 duration-500">
-              <span className="px-3 py-1 rounded-full bg-[#00E575]/15 border border-[#00E575] text-[#00E575] text-xs font-mono font-bold uppercase tracking-wider inline-block">
-                SCENE 02 • THE COMPREHENSIVE SCAN
+            <div className="space-y-4 max-w-2xl animate-in fade-in zoom-in-95 duration-400">
+              <span className="px-3 py-1 rounded-full bg-[#00E575]/15 border border-[#00E575] text-[#00E575] text-xs font-medium inline-block">
+                Scene 02 • Comprehensive Scan
               </span>
 
-              <h2 className="text-3xl sm:text-6xl font-black uppercase text-white font-display tracking-tight leading-tight">
-                122-POINT INDEPENDENT AUDIT
+              <h2 className="text-3xl sm:text-5xl font-extrabold uppercase text-white tracking-tight leading-tight">
+                122-Point Independent Audit
               </h2>
 
               <p className="text-sm sm:text-base text-[#D0D4DF] max-w-lg mx-auto">
-                Nothing escapes our certified inspectors. Mechanical powertrain, electronic computer modules, body frame alignment, and safety systems.
+                Nothing escapes our certified inspectors. Mechanical powertrain, electronic modules, body frame alignment, and safety systems.
               </p>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-xl mx-auto pt-2 text-xs font-mono">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-lg mx-auto pt-2 text-xs font-mono">
                 <div className="p-3 rounded-xl bg-black/70 backdrop-blur-md border border-white/10">
                   <span className="text-[#00E575] font-bold block">ENGINE</span>
-                  <span className="text-[11px] text-[#A6A29C]">Leakes & Noise</span>
+                  <span className="text-[11px] text-[#A6A29C]">Leaks & Noise</span>
                 </div>
                 <div className="p-3 rounded-xl bg-black/70 backdrop-blur-md border border-white/10">
                   <span className="text-[#00E575] font-bold block">OBD-II SCAN</span>
@@ -218,17 +216,17 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onOpenBooking, onO
 
           {/* SCENE 3: Powertrain & Dynamics */}
           {currentScene === 3 && (
-            <div className="space-y-4 max-w-3xl animate-in fade-in zoom-in-95 duration-500">
-              <span className="px-3 py-1 rounded-full bg-[#00E575]/15 border border-[#00E575] text-[#00E575] text-xs font-mono font-bold uppercase tracking-wider inline-block">
-                SCENE 03 • ROAD DYNAMICS
+            <div className="space-y-4 max-w-2xl animate-in fade-in zoom-in-95 duration-400">
+              <span className="px-3 py-1 rounded-full bg-[#00E575]/15 border border-[#00E575] text-[#00E575] text-xs font-medium inline-block">
+                Scene 03 • Road Dynamics
               </span>
 
-              <h2 className="text-3xl sm:text-6xl font-black uppercase text-white font-display tracking-tight leading-tight">
-                15-MINUTE DYNAMIC ROAD TEST
+              <h2 className="text-3xl sm:text-5xl font-extrabold uppercase text-white tracking-tight leading-tight">
+                15-Minute Dynamic Road Test
               </h2>
 
               <p className="text-sm sm:text-base text-[#D0D4DF] max-w-lg mx-auto">
-                We road test the vehicle in street and highway conditions. Checking acceleration shudder, brake pedal pulsation, tracking, and gearbox kickdown.
+                Real test drive under street and highway conditions. Checking acceleration, brake pulsation, tracking, and gearbox kickdown.
               </p>
 
               <div className="p-4 bg-black/80 backdrop-blur-md rounded-2xl border border-white/10 max-w-md mx-auto text-left text-xs font-mono space-y-2">
@@ -250,44 +248,44 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onOpenBooking, onO
 
           {/* SCENE 4: Reports & Photos */}
           {currentScene === 4 && (
-            <div className="space-y-4 max-w-3xl animate-in fade-in zoom-in-95 duration-500">
-              <span className="px-3 py-1 rounded-full bg-[#00E575]/15 border border-[#00E575] text-[#00E575] text-xs font-mono font-bold uppercase tracking-wider inline-block">
-                SCENE 04 • EVIDENCE & PHOTOS
+            <div className="space-y-4 max-w-2xl animate-in fade-in zoom-in-95 duration-400">
+              <span className="px-3 py-1 rounded-full bg-[#00E575]/15 border border-[#00E575] text-[#00E575] text-xs font-medium inline-block">
+                Scene 04 • Evidence & Photos
               </span>
 
-              <h2 className="text-3xl sm:text-6xl font-black uppercase text-white font-display tracking-tight leading-tight">
-                SAME-DAY WRITTEN REPORT & 60+ PHOTOS
+              <h2 className="text-3xl sm:text-5xl font-extrabold uppercase text-white tracking-tight leading-tight">
+                Same-Day Written Report & 60+ Photos
               </h2>
 
               <p className="text-sm sm:text-base text-[#D0D4DF] max-w-lg mx-auto">
-                Receive an itemized digital report with date-stamped high-res photos, diagnostic trouble codes, and mechanic negotiation estimates.
+                Receive an itemized digital report with date-stamped high-res photos, diagnostic trouble codes, and mechanic negotiation advice.
               </p>
 
               <button
                 onClick={onOpenReport}
-                className="px-6 py-3 bg-white text-black font-display font-black text-xs uppercase tracking-wider rounded-xl shadow-xl hover:bg-[#00E575] transition-colors"
+                className="px-6 py-3 bg-white text-black font-bold text-xs uppercase tracking-wide rounded-xl shadow-xl hover:bg-[#00E575] transition-colors"
               >
-                Preview Actual 122-Pt Report Dossier
+                Preview Sample 122-Pt Report
               </button>
             </div>
           )}
 
           {/* SCENE 5: Nationwide 50 States */}
           {currentScene === 5 && (
-            <div className="space-y-4 max-w-3xl animate-in fade-in zoom-in-95 duration-500">
-              <span className="px-3 py-1 rounded-full bg-[#00E575]/15 border border-[#00E575] text-[#00E575] text-xs font-mono font-bold uppercase tracking-wider inline-block">
-                SCENE 05 • NATIONWIDE DISPATCH
+            <div className="space-y-4 max-w-2xl animate-in fade-in zoom-in-95 duration-400">
+              <span className="px-3 py-1 rounded-full bg-[#00E575]/15 border border-[#00E575] text-[#00E575] text-xs font-medium inline-block">
+                Scene 05 • Nationwide Dispatch
               </span>
 
-              <h2 className="text-3xl sm:text-6xl font-black uppercase text-white font-display tracking-tight leading-tight">
-                MOBILE ACROSS ALL 50 US STATES
+              <h2 className="text-3xl sm:text-5xl font-extrabold uppercase text-white tracking-tight leading-tight">
+                Mobile Across All 50 US States
               </h2>
 
               <p className="text-sm sm:text-base text-[#D0D4DF] max-w-lg mx-auto">
-                Buying a pickup from Texas or a luxury SUV from California? We send certified technicians directly to dealer lots, auctions, and private driveways.
+                Buying a pickup from Texas or an SUV from California? We send certified technicians directly to dealer lots, auctions, and driveways.
               </p>
 
-              <div className="flex items-center justify-center gap-2 text-xs font-mono text-[#00E575]">
+              <div className="flex items-center justify-center gap-2 text-xs font-medium text-[#00E575]">
                 <MapPin className="w-4 h-4" />
                 <span>Zero Travel Surprises • Fast Local Dispatch</span>
               </div>
@@ -296,45 +294,45 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onOpenBooking, onO
 
           {/* SCENE 6: $225 Flat Pricing */}
           {currentScene === 6 && (
-            <div className="space-y-4 max-w-3xl animate-in fade-in zoom-in-95 duration-500">
-              <span className="px-3 py-1 rounded-full bg-[#00E575]/15 border border-[#00E575] text-[#00E575] text-xs font-mono font-bold uppercase tracking-wider inline-block">
-                SCENE 06 • TRANSPARENT VALUE
+            <div className="space-y-4 max-w-2xl animate-in fade-in zoom-in-95 duration-400">
+              <span className="px-3 py-1 rounded-full bg-[#00E575]/15 border border-[#00E575] text-[#00E575] text-xs font-medium inline-block">
+                Scene 06 • Transparent Value
               </span>
 
-              <h2 className="text-3xl sm:text-6xl font-black uppercase text-white font-display tracking-tight leading-tight">
-                $225 FLAT RATE FOR MOST VEHICLES
+              <h2 className="text-3xl sm:text-5xl font-extrabold uppercase text-white tracking-tight leading-tight">
+                $225 Flat Rate Most Vehicles
               </h2>
 
               <p className="text-sm sm:text-base text-[#D0D4DF] max-w-lg mx-auto">
-                Dealership inspections cost $350-$500+ and require towing. PPI Auto comes to the vehicle for one predictable flat price.
+                Dealership inspections cost $350-$500+ and require towing. PPI Auto comes to the vehicle for one clear flat price.
               </p>
 
               <div className="inline-flex items-baseline gap-2 p-3 bg-black/80 rounded-2xl border border-[#00E575]/40">
-                <span className="text-3xl sm:text-4xl font-black text-[#00E575] font-display">$225</span>
-                <span className="text-xs font-mono text-[#A1A7B5] uppercase font-bold">FLAT FEE • ALL 122 POINTS INCLUDED</span>
+                <span className="text-3xl sm:text-4xl font-extrabold text-[#00E575]">$225</span>
+                <span className="text-xs font-medium text-[#A1A7B5] uppercase">Flat Fee • All 122 Points Included</span>
               </div>
             </div>
           )}
 
           {/* SCENE 7: Final Booking Call */}
           {currentScene === 7 && (
-            <div className="space-y-4 sm:space-y-6 max-w-3xl animate-in fade-in zoom-in-95 duration-500">
-              <span className="px-3 py-1 rounded-full bg-[#00E575] text-black text-xs font-mono font-black uppercase tracking-wider inline-block">
-                SCENE 07 • TAKE ACTION
+            <div className="space-y-4 sm:space-y-5 max-w-2xl animate-in fade-in zoom-in-95 duration-400">
+              <span className="px-3 py-1 rounded-full bg-[#00E575] text-black text-xs font-bold uppercase tracking-wide inline-block">
+                Scene 07 • Take Action
               </span>
 
-              <h2 className="text-3xl sm:text-6xl font-black uppercase text-white font-display tracking-tight leading-tight">
-                INSPECT BEFORE YOU INVEST.
+              <h2 className="text-3xl sm:text-5xl font-extrabold uppercase text-white tracking-tight leading-tight">
+                Inspect Before You Invest.
               </h2>
 
               <p className="text-sm sm:text-base text-[#D0D4DF] max-w-lg mx-auto">
-                Protect your hard-earned money. Book your inspection online in 2 minutes or speak directly with our dispatch specialists.
+                Protect your investment. Book your inspection online in 2 minutes or speak directly with dispatch.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
                 <button
                   onClick={onOpenBooking}
-                  className="w-full sm:w-auto px-8 py-4 bg-[#00E575] hover:bg-[#00C853] text-black font-display font-black text-sm uppercase tracking-wider rounded-xl shadow-2xl shadow-[#00E575]/35 transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-7 py-3.5 bg-[#00E575] hover:bg-[#00C853] text-black font-bold text-sm uppercase tracking-wide rounded-xl shadow-2xl shadow-[#00E575]/35 transition-all flex items-center justify-center gap-2"
                 >
                   <span>Book Your Inspection ($225 Flat)</span>
                   <ArrowRight className="w-4 h-4 stroke-[2.5]" />
@@ -342,7 +340,7 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onOpenBooking, onO
 
                 <a
                   href={`tel:${BUSINESS_INFO.phone}`}
-                  className="w-full sm:w-auto px-7 py-4 bg-black/70 hover:bg-black/90 text-white font-mono font-bold text-xs rounded-xl border border-white/20 flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-6 py-3.5 bg-black/70 hover:bg-black/90 text-white font-medium text-xs rounded-xl border border-white/20 flex items-center justify-center gap-2"
                 >
                   <Phone className="w-4 h-4 text-[#00E575]" />
                   <span>Call: {BUSINESS_INFO.formattedPhone}</span>
@@ -353,10 +351,8 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onOpenBooking, onO
 
         </div>
 
-        {/* HUD Bottom Bar: Story Timeline & Progress Scrub Bar */}
-        <div className="relative z-20 pb-6 px-4 sm:px-8 max-w-7xl mx-auto w-full">
-          
-          {/* Progress Bar */}
+        {/* HUD Bottom Bar: Story Timeline */}
+        <div className="relative z-20 pb-5 px-4 sm:px-8 max-w-7xl mx-auto w-full">
           <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden mb-3">
             <div
               className="h-full bg-gradient-to-r from-[#00E575] to-[#00C853] transition-all duration-100 ease-out"
@@ -364,8 +360,7 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onOpenBooking, onO
             />
           </div>
 
-          {/* Timeline Scene Indicators */}
-          <div className="flex items-center justify-between gap-1 text-[10px] sm:text-xs font-mono">
+          <div className="flex items-center justify-between gap-1 text-[11px] font-mono">
             {scenes.map((s) => (
               <button
                 key={s.id}
@@ -388,11 +383,10 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onOpenBooking, onO
             ))}
           </div>
 
-          {/* Scroll Down Hint on Scene 1 */}
           {currentScene === 1 && (
-            <div className="flex items-center justify-center gap-1.5 pt-3 text-[11px] font-mono text-[#8D93A5] animate-bounce">
+            <div className="flex items-center justify-center gap-1.5 pt-2 text-[11px] font-medium text-[#8D93A5] animate-bounce">
               <ChevronDown className="w-3.5 h-3.5 text-[#00E575]" />
-              <span>SCROLL DOWN TO DRIVE & UNVEIL STORY</span>
+              <span>Scroll down to explore</span>
             </div>
           )}
         </div>

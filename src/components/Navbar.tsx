@@ -20,13 +20,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenReport }) =
 
   return (
     <>
-      {/* Top Notification / Urgency Ticker */}
+      {/* Top Ticker */}
       <div className="bg-[#07080A] text-[#9EA3B0] border-b border-white/5 text-xs py-2 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#00E575] animate-pulse" />
-            <span className="text-white font-semibold text-[11px] sm:text-xs">
-              MOBILE DISPATCH ACROSS ALL 50 US STATES
+            <span className="text-white font-medium text-[11px] sm:text-xs">
+              Mobile Inspection Dispatch Across All 50 US States
             </span>
             <span className="hidden md:inline text-[#6B7280]">•</span>
             <span className="hidden md:inline text-[11px] text-[#A1A7B5]">Same-day written reports</span>
@@ -34,7 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenReport }) =
 
           <a
             href={`tel:${BUSINESS_INFO.phone}`}
-            className="text-[#00E575] hover:text-white transition-colors font-mono font-bold text-xs flex items-center gap-1.5"
+            className="text-[#00E575] hover:text-white transition-colors font-mono font-semibold text-xs flex items-center gap-1.5"
           >
             <Phone className="w-3.5 h-3.5" />
             <span>{BUSINESS_INFO.formattedPhone}</span>
@@ -48,19 +48,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenReport }) =
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a href="#overview" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#00E575] flex items-center justify-center text-black font-black shadow-lg shadow-[#00E575]/20 group-hover:scale-105 transition-transform">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#00E575] flex items-center justify-center text-black font-extrabold shadow-lg shadow-[#00E575]/20 group-hover:scale-105 transition-transform">
                 <Shield className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5]" />
               </div>
               <div>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-xl sm:text-2xl font-black tracking-tight text-white font-display">
+                  <span className="text-xl sm:text-2xl font-bold tracking-tight text-white">
                     PPI<span className="text-[#00E575]">AUTO</span>
                   </span>
-                  <span className="text-[9px] font-mono uppercase px-1.5 py-0.2 rounded bg-[#181B23] text-[#00E575] font-bold border border-white/5">
-                    $225
+                  <span className="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-[#181B23] text-[#00E575] font-semibold border border-white/5">
+                    $225 Flat
                   </span>
                 </div>
-                <p className="text-[9px] tracking-wider uppercase text-[#737A8B] font-mono leading-none">
+                <p className="text-[10px] tracking-wider uppercase text-[#737A8B] font-mono leading-none">
                   Pre-Purchase Vehicle Inspection
                 </p>
               </div>
@@ -72,14 +72,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenReport }) =
                 <a
                   key={link.label}
                   href={link.href}
-                  className="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#9EA3B0] hover:text-white hover:bg-white/5 rounded-full transition-all"
+                  className="px-3 py-1.5 text-xs font-medium text-[#9EA3B0] hover:text-white hover:bg-white/5 rounded-full transition-all"
                 >
                   {link.label}
                 </a>
               ))}
               <button
                 onClick={onOpenReport}
-                className="px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#00E575] hover:text-white hover:bg-[#00E575]/10 rounded-full transition-all flex items-center gap-1.5"
+                className="px-3.5 py-1.5 text-xs font-semibold text-[#00E575] hover:text-white hover:bg-[#00E575]/10 rounded-full transition-all flex items-center gap-1.5"
               >
                 <FileText className="w-3.5 h-3.5" />
                 Sample Report
@@ -92,17 +92,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenReport }) =
                 href={`tel:${BUSINESS_INFO.phone}`}
                 className="hidden xl:flex flex-col text-right mr-1"
               >
-                <span className="text-[10px] text-[#737A8B] uppercase tracking-widest font-mono">
+                <span className="text-[10px] text-[#737A8B] uppercase tracking-wider font-mono">
                   Direct Line
                 </span>
-                <span className="text-sm font-mono font-bold text-white hover:text-[#00E575] transition-colors">
+                <span className="text-sm font-mono font-semibold text-white hover:text-[#00E575] transition-colors">
                   {BUSINESS_INFO.formattedPhone}
                 </span>
               </a>
 
               <button
                 onClick={onOpenBooking}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#00E575] hover:bg-[#00C853] text-black font-display font-extrabold text-xs uppercase tracking-wider rounded-xl shadow-lg shadow-[#00E575]/25 transition-all duration-200 active:scale-95"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#00E575] hover:bg-[#00C853] text-black font-semibold text-xs uppercase tracking-wider rounded-xl shadow-lg shadow-[#00E575]/25 transition-all duration-200 active:scale-95"
               >
                 <span>Book $225</span>
                 <ArrowRight className="w-4 h-4 stroke-[2.5]" />
@@ -113,7 +113,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenReport }) =
             <div className="flex sm:hidden items-center gap-2">
               <button
                 onClick={onOpenBooking}
-                className="px-3.5 py-2 bg-[#00E575] text-black font-display font-black text-xs uppercase tracking-wider rounded-lg shadow-md shadow-[#00E575]/20 active:scale-95"
+                className="px-3.5 py-2 bg-[#00E575] text-black font-bold text-xs uppercase tracking-wide rounded-lg shadow-md shadow-[#00E575]/20 active:scale-95"
               >
                 Book $225
               </button>
@@ -137,7 +137,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenReport }) =
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-2.5 text-sm font-bold uppercase tracking-wider text-[#C4C9D6] hover:text-[#00E575] hover:bg-white/5 rounded-lg transition-colors"
+                  className="px-3 py-2.5 text-sm font-medium text-[#C4C9D6] hover:text-[#00E575] hover:bg-white/5 rounded-lg transition-colors"
                 >
                   {link.label}
                 </a>
@@ -147,7 +147,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenReport }) =
                   setMobileMenuOpen(false);
                   onOpenReport();
                 }}
-                className="px-3 py-2.5 text-left text-sm font-bold uppercase tracking-wider text-[#00E575] hover:bg-white/5 rounded-lg flex items-center gap-2"
+                className="px-3 py-2.5 text-left text-sm font-semibold text-[#00E575] hover:bg-white/5 rounded-lg flex items-center gap-2"
               >
                 <FileText className="w-4 h-4" />
                 View Sample 122-Pt Report
@@ -157,7 +157,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenReport }) =
             <div className="pt-3 border-t border-white/10 space-y-2">
               <a
                 href={`tel:${BUSINESS_INFO.phone}`}
-                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-[#161821] text-white text-xs font-mono font-bold border border-white/5"
+                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-[#161821] text-white text-xs font-mono font-semibold border border-white/5"
               >
                 <Phone className="w-4 h-4 text-[#00E575]" />
                 Call: {BUSINESS_INFO.formattedPhone}
@@ -167,7 +167,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenReport }) =
                   setMobileMenuOpen(false);
                   onOpenBooking();
                 }}
-                className="w-full py-3.5 bg-[#00E575] text-black font-display font-black text-xs uppercase tracking-wider rounded-xl shadow-lg text-center"
+                className="w-full py-3.5 bg-[#00E575] text-black font-bold text-xs uppercase tracking-wide rounded-xl shadow-lg text-center"
               >
                 Book Inspection ($225 Flat)
               </button>
