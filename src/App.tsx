@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
-import { HeroSection } from './components/HeroSection';
+import { CinematicHero } from './components/CinematicHero';
 import { StatsBar } from './components/StatsBar';
 import { DefectComparisonSlider } from './components/DefectComparisonSlider';
 import { ServicesSection } from './components/ServicesSection';
 import { HowItWorks } from './components/HowItWorks';
 import { InspectionShowcase122 } from './components/InspectionShowcase122';
+import { WhyChooseSection } from './components/WhyChooseSection';
 import { PricingSection } from './components/PricingSection';
+import { TestimonialsSection } from './components/TestimonialsSection';
+import { FaqSection } from './components/FaqSection';
 import { FinalCtaSection } from './components/FinalCtaSection';
 import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
@@ -29,33 +32,32 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-[#07080A] text-white font-sans antialiased selection:bg-[#00E575] selection:text-black">
-      {/* 1. Mobile-friendly Navbar */}
+      {/* 1. Sticky Navigation */}
       <Navbar
         onOpenBooking={handleOpenBooking}
         onOpenReport={handleOpenReport}
       />
 
-      {/* Main Content */}
       <main>
-        {/* 2. Hero Section (Green & Black + Behance Heavy Grotesque Typography) */}
-        <HeroSection
+        {/* 2. Full-Screen Cinematic Car Driving Video Experience (7-Scene Scroll Storytelling) */}
+        <CinematicHero
           onOpenBooking={handleOpenBooking}
           onOpenReport={handleOpenReport}
         />
 
-        {/* 3. Streamlined Stats Bar */}
+        {/* 3. Verified Statistics Bar */}
         <StatsBar />
 
         {/* 4. Interactive Defect Comparison Slider (Surface vs Reality) */}
         <DefectComparisonSlider />
 
-        {/* 5. Inspection Services (6 Modular Cards with /// Green Accents) */}
+        {/* 5. 6 Diagnostic Inspection Services Grid */}
         <ServicesSection
           onSelectService={handleSelectService}
           onOpenBooking={handleOpenBooking}
         />
 
-        {/* 6. Clean 4-Step Process ("How It Works") */}
+        {/* 6. 4-Step Process ("How It Works") */}
         <HowItWorks onOpenBooking={handleOpenBooking} />
 
         {/* 7. 122-Point Inspection Explorer */}
@@ -64,26 +66,35 @@ export function App() {
           onOpenBooking={handleOpenBooking}
         />
 
-        {/* 8. $225 Flat Rate Pricing Card */}
+        {/* 8. Why Choose PPI Auto */}
+        <WhyChooseSection onOpenBooking={handleOpenBooking} />
+
+        {/* 9. $225 Flat Rate Pricing Card */}
         <PricingSection onOpenBooking={handleOpenBooking} />
 
-        {/* 9. Final Call to Action */}
+        {/* 10. Verified Reviews */}
+        <TestimonialsSection />
+
+        {/* 11. Frequently Asked Questions */}
+        <FaqSection />
+
+        {/* 12. Final Call-to-Action */}
         <FinalCtaSection onOpenBooking={handleOpenBooking} />
       </main>
 
-      {/* 10. Minimal Clean Footer */}
+      {/* 13. Minimal Luxury Footer */}
       <Footer
         onOpenBooking={handleOpenBooking}
         onOpenReport={handleOpenReport}
       />
 
-      {/* Interactive Booking Flow Modal */}
+      {/* Interactive Booking Modal */}
       <BookingModal
         isOpen={isBookingOpen}
         onClose={handleCloseBooking}
       />
 
-      {/* Interactive Sample Report Modal */}
+      {/* Interactive Sample Report Dossier Modal */}
       <SampleReportModal
         isOpen={isReportOpen}
         onClose={handleCloseReport}
