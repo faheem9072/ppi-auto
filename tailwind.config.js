@@ -14,24 +14,18 @@ export default {
           'green-light': '#E8FDF2',
         },
         obsidian: {
-          950: '#07080A',
-          900: '#0C0D11',
-          850: '#12141A',
-          800: '#181B23',
-          750: '#1F232D',
-          700: '#2A2F3D',
-          600: '#42495A',
-        },
-        sand: {
-          50: '#FAF8F5',
-          100: '#F3EFEA',
-          200: '#E7E1D8',
-          300: '#D5CCC0',
+          950: '#050505',
+          900: '#070707',
+          850: '#0E0F12',
+          800: '#15171C',
+          750: '#1C1F26',
+          700: '#262A34',
         }
       },
       fontFamily: {
-        display: ['Inter', 'Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
-        sans: ['Inter', 'Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+        display: ['"Barlow Condensed"', 'Inter', 'system-ui', 'sans-serif'],
+        condensed: ['"Barlow Condensed"', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace']
       }
     },

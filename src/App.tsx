@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Navbar } from './components/Navbar';
-import { CinematicHero } from './components/CinematicHero';
-import { StatsBar } from './components/StatsBar';
+import { AhapeNavbar } from './components/AhapeNavbar';
+import { AhapeStyleHero } from './components/AhapeStyleHero';
+import { AhapeTicker } from './components/AhapeTicker';
+import { AhapeAbout } from './components/AhapeAbout';
 import { DefectComparisonSlider } from './components/DefectComparisonSlider';
 import { ServicesSection } from './components/ServicesSection';
 import { HowItWorks } from './components/HowItWorks';
 import { InspectionShowcase122 } from './components/InspectionShowcase122';
-import { WhyChooseSection } from './components/WhyChooseSection';
 import { PricingSection } from './components/PricingSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { FaqSection } from './components/FaqSection';
@@ -31,43 +31,46 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#07080A] text-white font-sans antialiased selection:bg-[#00E575] selection:text-black">
-      {/* 1. Sticky Navigation */}
-      <Navbar
+    <div className="min-h-screen bg-[#070707] text-white font-sans antialiased selection:bg-[#00E575] selection:text-black">
+      {/* Subtle Film Grain (AHAPE Style) */}
+      <div className="grain-overlay" />
+
+      {/* 1. Floating Glassmorphism Pill Navbar */}
+      <AhapeNavbar
         onOpenBooking={handleOpenBooking}
         onOpenReport={handleOpenReport}
       />
 
       <main>
-        {/* 2. Full-Screen Cinematic Car Driving Video Experience (7-Scene Scroll Storytelling) */}
-        <CinematicHero
+        {/* 2. Full-Screen Cinematic Car Driving Video Hero (AHAPE Style) */}
+        <AhapeStyleHero
           onOpenBooking={handleOpenBooking}
           onOpenReport={handleOpenReport}
         />
 
-        {/* 3. Verified Statistics Bar */}
-        <StatsBar />
+        {/* 3. Moving Infinite Marquee Ticker */}
+        <AhapeTicker />
 
-        {/* 4. Interactive Defect Comparison Slider (Surface vs Reality) */}
+        {/* 4. The PPI Auto Standard (AHAPE 01-04 Numbered Feature Row) */}
+        <AhapeAbout onOpenBooking={handleOpenBooking} />
+
+        {/* 5. Interactive Defect Comparison Slider (Surface vs Reality) */}
         <DefectComparisonSlider />
 
-        {/* 5. 6 Diagnostic Inspection Services Grid */}
+        {/* 6. 6 Diagnostic Inspection Services Grid */}
         <ServicesSection
           onSelectService={handleSelectService}
           onOpenBooking={handleOpenBooking}
         />
 
-        {/* 6. 4-Step Process ("How It Works") */}
+        {/* 7. 4-Step Process ("How It Works") */}
         <HowItWorks onOpenBooking={handleOpenBooking} />
 
-        {/* 7. 122-Point Inspection Explorer */}
+        {/* 8. 122-Point Inspection Explorer */}
         <InspectionShowcase122
           onOpenReport={handleOpenReport}
           onOpenBooking={handleOpenBooking}
         />
-
-        {/* 8. Why Choose PPI Auto */}
-        <WhyChooseSection onOpenBooking={handleOpenBooking} />
 
         {/* 9. $225 Flat Rate Pricing Card */}
         <PricingSection onOpenBooking={handleOpenBooking} />
